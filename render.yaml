@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: microservicio-clientes
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: DB_NAME
+        value: DBClientes
+      - key: MONGO_URI
+        sync: false

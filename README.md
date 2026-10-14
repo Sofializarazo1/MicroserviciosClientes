@@ -28,3 +28,15 @@ Los documentos deben tener `id`, `nombre`, `email`, `ciudad`, `provincia` y `fec
 ## Pruebas
 
 Ejecuta `npm test`.
+
+## Despliegue en Render
+
+El archivo [`render.yaml`](./render.yaml) configura el servicio web, la instalación reproducible con `npm ci`, el comando de inicio y la ruta de health check.
+
+1. Sube los cambios del proyecto a GitHub.
+2. En Render, crea un **Blueprint** y selecciona el repositorio `MicroserviciosClientes`.
+3. Al aplicar el Blueprint, configura `MONGO_URI` como variable secreta con la URI de MongoDB Atlas. `DB_NAME` ya está configurada como `DBClientes`. No pongas credenciales en el repositorio ni en `render.yaml`.
+4. En MongoDB Atlas, configura el acceso de red para permitir las conexiones salientes de Render, y verifica las credenciales y permisos del usuario de base de datos.
+5. Render construirá el proyecto y comprobará `GET /health`. La comprobación requiere que Atlas sea accesible y responda al ping; de lo contrario, el endpoint devuelve `503` y el servicio no pasará el health check.
+
+Tras el despliegue, la URL asignada por Render es la base del servicio. Puedes probarla en el navegador con `/health`, `/items` o `/items/CLI001`.
