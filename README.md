@@ -13,7 +13,7 @@ Servicio HTTP de solo lectura basado en Express y MongoDB Atlas. Su contrato Ope
 2. Copia `.env.example` a `.env` y completa `MONGO_URI` con la URI de MongoDB Atlas. No publiques el archivo `.env`.
 3. Ejecuta `npm start` (o `npm run dev` durante el desarrollo).
 
-`DB_NAME` usa `DBClientes` de forma predeterminada y `PORT` usa `3000`. La colección consultada en Atlas es `Clientes`; el contrato publica `collection: "clientes"` en la respuesta de salud.
+`DB_NAME` usa `DBClientes` de forma predeterminada y `PORT` usa `3000`. La colección consultada en Atlas y publicada en el contrato es `clientes` (MongoDB distingue mayúsculas y minúsculas).
 
 ## Endpoints
 

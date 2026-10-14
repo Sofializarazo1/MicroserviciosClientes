@@ -1,6 +1,11 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
 const { BadRequestError, parseListQuery } = require('../src/query');
+const { COLLECTION_NAME } = require('../src/database');
+
+test('uses the collection name declared in the OpenAPI contract', () => {
+  assert.equal(COLLECTION_NAME, 'clientes');
+});
 
 test('uses the contract pagination defaults', () => {
   assert.deepEqual(parseListQuery({}), {

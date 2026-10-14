@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const COLLECTION_NAME = 'Clientes';
+const COLLECTION_NAME = 'clientes';
 
 let client;
 
